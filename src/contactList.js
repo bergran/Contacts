@@ -2,12 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import escape from 'escape-string-regexp'
 import sortBy from 'sort-by'
-
-const Anchor = props => {
-  return (
-    <a {...props}>{ props.children }</a>
-  );
-}
+import { Link } from 'react-router-dom'
 
 
 class ContactList extends Component {
@@ -54,9 +49,8 @@ class ContactList extends Component {
                         value={query}
                         onChange={(event) => this.updateQuery(event.target.value)}
                     />
-                    <Anchor href="#create"
-                            onClick={() => {this.props.onNavigate()}}
-                            className='add-contact'/>
+                    <Link to ="/create"
+                          className='add-contact'>Add contact</Link>
                 </div>
                 {
                     showContacts.length !== contacts.length &&
